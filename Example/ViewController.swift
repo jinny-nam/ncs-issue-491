@@ -353,14 +353,12 @@ class ViewController: UIViewController {
         }
 */
         
+        
         guard let response = response,
               let routes = response.routes,
                 !routes.isEmpty,
                 case let .route(routeOptions) = response.options else { return }
-
-        routeOptions.locale = Locale(identifier: "en_GB") // HERE
                         
-//        let styles = self.isDarkMode ? [CustomNightStyle()] : [CustomDayStyle()]
         #if targetEnvironment(simulator)
         let simulation = SimulationMode.always
         #else
@@ -401,6 +399,9 @@ class ViewController: UIViewController {
 //        navigationViewController.navigationMapView?.userLocationStyle = .puck2D()
     
         self.present(navigationViewController, animated: true)
+        
+        
+        
     }
 
     func startStyledNavigation() {
